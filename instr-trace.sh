@@ -2,7 +2,7 @@
 
 readonly G_SCRIPT_NAME="$(basename $(realpath $0))"
 
-function wrtie_gdb_script
+function write_gdb_script
 {
 	local MY_PID="$1"
 	local MAX_INSTR="$2"
@@ -64,7 +64,7 @@ function get_instr_trace
 		exit 1
 	fi
 	
-	wrtie_gdb_script "${MY_PID}" "${MAX_INSTR}" "${GDB_SCRIPT}"
+	write_gdb_script "${MY_PID}" "${MAX_INSTR}" "${GDB_SCRIPT}"
 	run_gdb "${GDB_BIN}" "${GDB_SCRIPT}" "${TRACE_FILE}"
 	cleanup "${GDB_SCRIPT}"
 }
